@@ -1,6 +1,6 @@
 Name:           execstack
 Version:        0.5.0
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Utility to set/clear/query executable stack bit
 
 %global commit 4c79120bcdbde0616f592458ccde7035e92ca3d8
@@ -11,8 +11,11 @@ License: GPLv2+
 # work around for missing upstream tarball with latest checkin
 Source0: https://github.com/keszybz/prelink/archive/%{commit}.tar.gz#/prelink-%{shortcommit}.tar.gz
 
+Patch0:  Add-PL_ARCH-for-AArch64.patch
+
 BuildRequires: elfutils-libelf-devel
 BuildRequires: libselinux-devel, libselinux-utils
+BuildRequires: git
 Requires: glibc >= 2.2.4-18, coreutils, findutils
 Requires: util-linux, gawk, grep
 
@@ -24,7 +27,7 @@ execstack binary. It can be used manipulate ELF binaries to run
 with or without executable stack.
 
 %prep
-%autosetup -n prelink-%{commit}
+%autosetup -n prelink-%{commit} -p1 -Sgit
 
 %build
 sed -i -e '/^prelink_LDADD/s/$/ -lpthread/' src/Makefile.{am,in}
@@ -53,5 +56,8 @@ install -Dm0644 doc/execstack.8 %{buildroot}%{_mandir}/man8/execstack.8
 %{_mandir}/man8/execstack.8.*
 
 %changelog
+* Fri Aug 21 2015 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 0.5.0-9
+- Add support for aarch64 (#1251165)
+
 * Mon Jul 27 2015 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 0.5.0-8
 - Kill off most of prelink package
