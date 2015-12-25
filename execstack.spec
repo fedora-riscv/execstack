@@ -5,7 +5,6 @@ Summary:        Utility to set/clear/query executable stack bit
 
 %global commit 4c79120bcdbde0616f592458ccde7035e92ca3d8
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%define date 20131005
 
 License: GPLv2+
 # work around for missing upstream tarball with latest checkin
