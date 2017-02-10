@@ -1,6 +1,6 @@
 Name:           execstack
 Version:        0.5.0
-Release:        10%{?dist}
+Release:        11%{?dist}
 Summary:        Utility to set/clear/query executable stack bit
 
 %global commit 4c79120bcdbde0616f592458ccde7035e92ca3d8
@@ -55,6 +55,9 @@ install -Dm0644 doc/execstack.8 %{buildroot}%{_mandir}/man8/execstack.8
 %{_mandir}/man8/execstack.8.*
 
 %changelog
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.0-11
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.0-10
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
