@@ -1,3 +1,9 @@
+# only aarch64 and ppc64le missing prelink on epel7
+# https://bugzilla.redhat.com/show_bug.cgi?id=1472817
+%if 0%{?rhel}
+ExclusiveArch: aarch64 ppc64le
+%endif
+
 Name:           execstack
 Version:        0.5.0
 Release:        11%{?dist}
