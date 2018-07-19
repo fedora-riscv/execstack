@@ -12,7 +12,8 @@ Source0: https://github.com/keszybz/prelink/archive/%{commit}.tar.gz#/prelink-%{
 
 Patch0:  Add-PL_ARCH-for-AArch64.patch
 
-BuildRequires:  gcc
+BuildRequires: gcc
+BuildRequires: gcc-c++
 BuildRequires: elfutils-libelf-devel
 BuildRequires: libselinux-devel, libselinux-utils
 BuildRequires: git
