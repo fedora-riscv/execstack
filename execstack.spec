@@ -17,6 +17,7 @@ BuildRequires: gcc-c++
 BuildRequires: elfutils-libelf-devel
 BuildRequires: libselinux-devel, libselinux-utils
 BuildRequires: git
+BuildRequires: make
 Requires: glibc >= 2.2.4-18, coreutils, findutils
 Requires: util-linux, gawk, grep
 
