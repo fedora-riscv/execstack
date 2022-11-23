@@ -1,6 +1,6 @@
 Name:           execstack
 Version:        0.5.0
-Release:        25%{?dist}
+Release:        25.rv64%{?dist}
 Summary:        Utility to set/clear/query executable stack bit
 
 %global commit 4c79120bcdbde0616f592458ccde7035e92ca3d8
@@ -12,6 +12,8 @@ Source0: https://github.com/keszybz/prelink/archive/%{commit}.tar.gz#/prelink-%{
 
 Patch0:  Add-PL_ARCH-for-AArch64.patch
 Patch1: execstack-configure-c99.patch
+
+Patch10:    0001-Add-minimal-support-for-RISC-V-64-bit-riscv64.patch
 
 BuildRequires: gcc
 BuildRequires: gcc-c++
@@ -59,11 +61,17 @@ install -Dm0644 doc/execstack.8 %{buildroot}%{_mandir}/man8/execstack.8
 %{_mandir}/man8/execstack.8.*
 
 %changelog
+* Thu Apr 27 2023 Liu Yang <Yang.Liu.sn@gmail.com> - 0.5.0-25.rv64
+- cherry-pick davidlt's riscv64 support for Fedora 38.
+
 * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.0-25
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
 * Tue Nov 22 2022 Florian Weimer <fweimer@redhat.com> - 0.5.0-24
 - Avoid implicit function declarations in configure (#2144890)
+
+* Wed Nov 23 2022 David Abdurachmanov <davidlt@rivosinc.com> - 0.5.0-23.0.riscv64
+- Add minimal support for riscv64
 
 * Thu Jul 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.0-23
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
